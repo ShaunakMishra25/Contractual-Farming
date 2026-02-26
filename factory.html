@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AgriContract - Factory Dashboard</title>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Google Font: Poppins -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR ===== -->
+  <nav class="navbar">
+    <a class="nav-brand" href="index.html">AgriContract</a>
+    <div class="nav-links">
+      <a class="nav-link" href="index.html">Home</a>
+      <a class="nav-link" href="farmer.html">Farmer</a>
+      <a class="nav-link active" href="factory.html">Factory</a>
+    </div>
+  </nav>
+
+  <!-- ===== FACTORY DASHBOARD ===== -->
+  <div class="dashboard">
+
+    <!-- Dashboard Title -->
+    <div class="dashboard-header">
+      <h1>Factory Dashboard</h1>
+      <p>Create contracts and manage farmer applications.</p>
+    </div>
+
+    <!-- Create Contract Form -->
+    <div class="dashboard-section">
+      <h2>Create New Contract</h2>
+      <form class="contract-form" id="createContractForm" onsubmit="createContract(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cropName">Crop Name</label>
+            <input type="text" id="cropName" placeholder="e.g. Wheat" required />
+          </div>
+          <div class="form-group">
+            <label for="quantity">Quantity (tons)</label>
+            <input type="number" id="quantity" placeholder="e.g. 50" min="1" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pricePerUnit">Price per Unit (Rs.)</label>
+            <input type="number" id="pricePerUnit" placeholder="e.g. 2500" min="1" required />
+          </div>
+          <div class="form-group">
+            <label for="duration">Duration (months)</label>
+            <input type="number" id="duration" placeholder="e.g. 6" min="1" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="Describe the contract terms..." rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create Contract</button>
+      </form>
+    </div>
+
+    <!-- My Contracts Section -->
+    <div class="dashboard-section">
+      <h2>My Contracts</h2>
+      <div class="cards-grid" id="factoryContractsList"></div>
+      <p class="empty-state" id="factoryEmptyContracts" style="display: none">
+        You have not created any contracts yet.
+      </p>
+    </div>
+
+    <!-- Farmer Applications Section -->
+    <div class="dashboard-section">
+      <h2>Farmer Applications</h2>
+      <div class="cards-grid" id="factoryApplicationsList"></div>
+      <p class="empty-state" id="factoryEmptyApplications">
+        No applications received yet.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>

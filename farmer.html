@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AgriContract - Farmer Dashboard</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#11d411",
+            "primary-dark": "#0da60d",
+            "primary-light": "#e7f3e7",
+            "background-light": "#f6f8f6",
+            "background-dark": "#102210",
+            "text-main": "#0d1b0d",
+            "text-secondary": "#4c9a4c",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+            sans: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            "2xl": "1rem",
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light text-text-main font-sans antialiased">
+  <div class="relative flex min-h-screen w-full flex-row overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="flex w-64 flex-col border-r border-gray-200 bg-white min-h-screen fixed top-0 left-0 bottom-0 z-10 hidden md:flex">
+      <div class="flex h-full flex-col justify-between p-4">
+        <div class="flex flex-col gap-6">
+          <!-- Logo Area -->
+          <a href="index.html" class="flex items-center gap-3 px-2 no-underline">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+              <span class="material-symbols-outlined text-2xl">agriculture</span>
+            </div>
+            <div class="flex flex-col">
+              <h1 class="text-base font-bold text-gray-900 leading-none">AgriContract</h1>
+              <p class="text-xs text-gray-500 mt-1">Farmer Portal</p>
+            </div>
+          </a>
+
+          <!-- Navigation -->
+          <nav class="flex flex-col gap-1">
+            <a class="flex items-center gap-3 rounded-lg bg-primary/10 px-3 py-2.5 text-primary transition-colors no-underline" href="farmer.html">
+              <span class="material-symbols-outlined">dashboard</span>
+              <span class="text-sm font-medium">Dashboard</span>
+            </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors no-underline" href="#availableContracts">
+              <span class="material-symbols-outlined">description</span>
+              <span class="text-sm font-medium">Available Contracts</span>
+            </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors no-underline" href="#myApplications">
+              <span class="material-symbols-outlined">folder_shared</span>
+              <span class="text-sm font-medium">My Applications</span>
+            </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors no-underline" href="index.html">
+              <span class="material-symbols-outlined">home</span>
+              <span class="text-sm font-medium">Home</span>
+            </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors no-underline" href="factory.html">
+              <span class="material-symbols-outlined">factory</span>
+              <span class="text-sm font-medium">Factory Portal</span>
+            </a>
+          </nav>
+        </div>
+
+        <!-- User Profile Snippet -->
+        <div class="border-t border-gray-100 pt-4">
+          <div class="flex items-center gap-3 rounded-lg p-2 hover:bg-gray-50 cursor-pointer">
+            <div class="h-10 w-10 rounded-full bg-cover bg-center"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRe93CE9JdNmWsdehlt8HsxZAn0hOk9Cw7TyxB5QiGhOxg-wkRHKc4uKa7ItUpATL5tX33msUB3xGuOS0LDOa93o7hl7g6BUAegTi1N5deoIvbgxRoZlYiNJfLKBXGPvWzbfvjrzERL_F0uZY75mKgc-ukfHAX2PMMCe03mVWvY3EX9PCAe8y2mxiDqjakVrMwhyDvrzGD0TYePMPPLY-Foi_FfJYmYzbd0GqpDJfpzJq5wMorL6mxP_V3lOKcxAZsoCCGPbkYAk8Z');">
+            </div>
+            <div class="flex flex-col overflow-hidden">
+              <span class="truncate text-sm font-medium text-gray-900">Rajesh Kumar</span>
+              <span class="truncate text-xs text-gray-500">Kumar Farms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 md:ml-64 bg-background-light min-h-screen">
+
+      <!-- Top Header (Mobile) -->
+      <header class="flex h-16 items-center justify-between border-b border-gray-200 bg-white px-6 md:hidden">
+        <div class="flex items-center gap-3">
+          <span class="material-symbols-outlined text-gray-600 cursor-pointer" onclick="document.querySelector('aside').classList.toggle('hidden')">menu</span>
+          <span class="font-bold text-gray-900">AgriContract</span>
+        </div>
+        <div class="h-8 w-8 rounded-full bg-gray-200 bg-cover bg-center"
+          style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRe93CE9JdNmWsdehlt8HsxZAn0hOk9Cw7TyxB5QiGhOxg-wkRHKc4uKa7ItUpATL5tX33msUB3xGuOS0LDOa93o7hl7g6BUAegTi1N5deoIvbgxRoZlYiNJfLKBXGPvWzbfvjrzERL_F0uZY75mKgc-ukfHAX2PMMCe03mVWvY3EX9PCAe8y2mxiDqjakVrMwhyDvrzGD0TYePMPPLY-Foi_FfJYmYzbd0GqpDJfpzJq5wMorL6mxP_V3lOKcxAZsoCCGPbkYAk8Z');">
+        </div>
+      </header>
+
+      <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+
+        <!-- Welcome Section -->
+        <div class="mb-8">
+          <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
+          <p class="mt-2 text-gray-600">Welcome back, Rajesh. Here's what's happening with your farm contracts today.</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="mb-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div class="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 text-green-600">
+              <span class="material-symbols-outlined">handshake</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">Active Contracts</p>
+              <p class="text-2xl font-bold text-gray-900" id="statActiveContracts">0</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+              <span class="material-symbols-outlined">pending_actions</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">Pending Applications</p>
+              <p class="text-2xl font-bold text-gray-900" id="statPendingApps">0</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 rounded-2xl border border-gray-100 bg-white p-6 shadow-sm">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-50 text-orange-600">
+              <span class="material-symbols-outlined">description</span>
+            </div>
+            <div>
+              <p class="text-sm text-gray-500">Available Contracts</p>
+              <p class="text-2xl font-bold text-gray-900" id="statAvailableContracts">0</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Available Contracts Section -->
+        <section class="mb-10" id="availableContracts">
+          <div class="mb-5 flex items-center justify-between">
+            <h2 class="text-xl font-bold text-gray-900">Available Contracts</h2>
+          </div>
+
+          <!-- Dynamic contract cards rendered by JS -->
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3" id="farmerContractsList"></div>
+
+          <!-- Empty state -->
+          <p class="text-center text-gray-500 py-12" id="farmerEmptyContracts" style="display: none">
+            No contracts available at the moment. Check back later.
+          </p>
+        </section>
+
+        <!-- My Applications Section -->
+        <section id="myApplications">
+          <div class="mb-5 flex items-center justify-between">
+            <h2 class="text-xl font-bold text-gray-900">My Applications</h2>
+          </div>
+
+          <!-- Applications Table -->
+          <div class="overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm" id="farmerApplicationsTable">
+            <div class="overflow-x-auto">
+              <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500" scope="col">Contract</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500" scope="col">Factory</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500" scope="col">Quantity</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500" scope="col">Price / Unit</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500" scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-200 bg-white" id="farmerApplicationsList">
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Empty state for applications -->
+          <p class="text-center text-gray-500 py-12" id="farmerEmptyApplications">
+            You have not applied to any contracts yet.
+          </p>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast container for notifications -->
+  <div id="toastContainer"></div>
+
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>

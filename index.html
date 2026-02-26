@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>AgriContract - Digitizing Farming Agreements</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#11d411",
+            "primary-dark": "#0ea60e",
+            "primary-light": "#e7f3e7",
+            "background-light": "#f6f8f6",
+            "background-dark": "#102210",
+            "text-dark": "#0d1b0d",
+            "text-light": "#f0fdf0",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+</head>
+<body class="bg-background-light text-text-dark font-display antialiased selection:bg-primary selection:text-white">
+  <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 w-full border-b border-[#e7f3e7] bg-[#f8fcf8]/90 backdrop-blur-md">
+      <div class="mx-auto flex h-16 max-w-[1280px] items-center justify-between px-6 lg:px-10">
+        <div class="flex items-center gap-4 text-text-dark">
+          <div class="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/20 text-primary">
+            <span class="material-symbols-outlined">agriculture</span>
+          </div>
+          <h2 class="text-xl font-bold leading-tight tracking-tight text-text-dark">AgriContract</h2>
+        </div>
+        <nav class="hidden md:flex flex-1 justify-end gap-8">
+          <div class="flex items-center gap-6 lg:gap-9">
+            <a class="text-sm font-medium text-text-dark hover:text-primary transition-colors" href="#problem">Problem</a>
+            <a class="text-sm font-medium text-text-dark hover:text-primary transition-colors" href="#solution">Solution</a>
+            <a class="text-sm font-medium text-text-dark hover:text-primary transition-colors" href="#workflow">Workflow</a>
+            <a class="text-sm font-medium text-text-dark hover:text-primary transition-colors" href="#future">Future Scope</a>
+          </div>
+          <div class="flex gap-3">
+            <a href="factory.html" class="flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white shadow-sm transition-transform hover:bg-primary-dark active:scale-95">
+              Factory Login
+            </a>
+            <a href="farmer.html" class="flex h-9 items-center justify-center rounded-lg border border-primary/20 bg-primary-light px-4 text-sm font-bold text-primary transition-transform hover:bg-primary/20 active:scale-95">
+              Farmer Login
+            </a>
+          </div>
+        </nav>
+        <!-- Mobile Menu Icon -->
+        <button id="mobileMenuBtn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-lg text-text-dark hover:bg-primary-light">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="hidden md:hidden border-t border-[#e7f3e7] bg-[#f8fcf8] px-6 py-4">
+        <div class="flex flex-col gap-3">
+          <a class="text-sm font-medium text-text-dark hover:text-primary" href="#problem">Problem</a>
+          <a class="text-sm font-medium text-text-dark hover:text-primary" href="#solution">Solution</a>
+          <a class="text-sm font-medium text-text-dark hover:text-primary" href="#workflow">Workflow</a>
+          <a class="text-sm font-medium text-text-dark hover:text-primary" href="#future">Future Scope</a>
+          <div class="flex gap-3 pt-2">
+            <a href="factory.html" class="flex h-9 items-center justify-center rounded-lg bg-primary px-4 text-sm font-bold text-white">Factory Login</a>
+            <a href="farmer.html" class="flex h-9 items-center justify-center rounded-lg border border-primary/20 bg-primary-light px-4 text-sm font-bold text-primary">Farmer Login</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="flex-1">
+
+      <!-- Hero Section -->
+      <section class="relative bg-white py-16 lg:py-24">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+          <div class="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+            <div class="flex flex-col gap-6 text-left">
+              <h1 class="text-4xl font-black leading-[1.1] tracking-tight text-text-dark sm:text-5xl lg:text-6xl">
+                Digitizing Contract <span class="text-primary">Farming Agreements</span>
+              </h1>
+              <p class="text-lg font-normal leading-relaxed text-gray-600 sm:text-xl max-w-lg">
+                Transparent agreements for a secure future. Bridge the gap between farmers and factories with secure, enforceable digital contracts.
+              </p>
+              <div class="flex flex-wrap gap-4 pt-4">
+                <a href="farmer.html" class="flex h-12 items-center justify-center rounded-lg bg-primary px-6 text-base font-bold text-white shadow-lg shadow-primary/20 transition-all hover:bg-primary-dark hover:shadow-xl hover:-translate-y-0.5">
+                  Get Started as Farmer
+                </a>
+                <a href="factory.html" class="flex h-12 items-center justify-center rounded-lg border-2 border-primary/10 bg-white px-6 text-base font-bold text-text-dark transition-all hover:border-primary/30 hover:bg-primary-light">
+                  Register as Factory
+                </a>
+              </div>
+              <div class="mt-4 flex items-center gap-4 text-sm text-gray-500">
+                <div class="flex -space-x-2">
+                  <div class="h-8 w-8 rounded-full border-2 border-white bg-gray-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDREYsrHK59zCdTx6Sryi9r7DzUbwicSbJOqCYV3X126ZFcMxAr2PdtNfrcEtky2HAQ2JB-qpMFP3FmXAPLdy_11pwOC1-lPS6fBlVY3Vq4f7-h2eyGDeTALnc7swwYgoxU6zqZp3jtDxDmg4a-0Xnit-wyuZheWbTTK6MdbcJ2fG9YZhrqTJEASWuOfKpnHtBZTQ-qtDTxzaARjKJo4OnIieS_m11Kl6axhV1p51_Kg-3dp-kYkxCS4cUOZ97sshhO2KugHiPNKU7T'); background-size: cover;"></div>
+                  <div class="h-8 w-8 rounded-full border-2 border-white bg-gray-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCqxTB_D8EeP5A6MVHyNDl0-omyviR6LXYlUzSLslH_hvDxZ1zSFOvRjz-T9D8FT15gCZjJGaMlCP1O48OwgXznoiopPwY8bjs8Q4EeTL9vvHMQLsUSwRO5u2ys9nomL3L8XlWZ5Dn42yEN34jnVpQW16E30jYVb6gou2do9kHZmZrfOpv5Icdz3CPANbMgQYYp8IPOrLbYI1BmKwLx3PaO4LftDNhyVDEx6WJ4sFHrrQLHpXQcExe2iiju8wy-sXbxQe3rC8I71V8r'); background-size: cover;"></div>
+                  <div class="h-8 w-8 rounded-full border-2 border-white bg-gray-200" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCZ6QoZjFjalYDQJCKdTNl06xZw2T9Piullnv2GqfgSaItQ4ipT1zusYq2Cdl6lJVmxTw3teItdFUx_Z8r6NuRVZssOOHjNQigMBeeibE1rhlkNxjs4MAexjoPYkLkqXZuOlCIEPLU38xD8cHVQ3vKxBFuG5g8b70S82Z1odl6RzBLu07goJ7NGHXpdLg_s93EAKorq5AMN3mkgJuI5_Or4he7SAaLIB6Kq6PhMmAsRhY9wB8ZMf7FngtpxqXpXAGJ0ICMR86CrgwUi'); background-size: cover;"></div>
+                </div>
+                <span>Trusted by 500+ local farmers</span>
+              </div>
+            </div>
+            <div class="relative w-full overflow-hidden rounded-2xl shadow-2xl lg:h-auto aspect-[4/3] bg-gray-100">
+              <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARh3l4Zyzs4mFhNDDw5sTCiSKrD1M817MfetHFABUwbmDPVqSr_IMlHdAFVkL_GVzCP3JjwjHa0RpNHk_dcOke1n5Whq2dG1NKQR9Uh5cPkd-usfRSuHfThCgdhzsuHfs76uPjLWaaGSR2GcHLdQE1sP9IDOLFWes1lOWvheWBflXmgaB9-LRYIhwac2Ld2uRReTenwFMt_VPu9ph5WQdPS47R1zEbXymE_4sLuKlz-8przBLT_JBHqB2KKgD7iAovY9_g9JDeiZEY');"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6 p-4 bg-white/95 backdrop-blur rounded-xl border border-white/20 shadow-lg max-w-xs">
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="material-symbols-outlined text-primary">verified_user</span>
+                  <span class="font-bold text-sm text-text-dark">Contract Active</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+                  <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-500">
+                  <span>Harvest Progress</span>
+                  <span class="font-medium text-text-dark">75%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Problem Section -->
+      <section class="bg-[#f0fdf4] py-20" id="problem">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+          <div class="mb-12 max-w-2xl">
+            <span class="mb-2 block text-sm font-bold uppercase tracking-wider text-primary">The Challenge</span>
+            <h2 class="text-3xl font-black leading-tight text-text-dark sm:text-4xl lg:text-5xl">
+              Challenges in Traditional Farming
+            </h2>
+            <p class="mt-4 text-lg text-gray-600">
+              Farmers and factories face significant hurdles in the current informal ecosystem, leading to inefficiencies and loss of value.
+            </p>
+          </div>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <!-- Card 1 -->
+            <div class="group relative flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-red-50 text-red-500 group-hover:bg-red-100 transition-colors">
+                <span class="material-symbols-outlined">currency_exchange</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-text-dark">Price Uncertainty</h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">Fluctuating market rates create financial instability and inability to plan for the next season.</p>
+              </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="group relative flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-50 text-orange-500 group-hover:bg-orange-100 transition-colors">
+                <span class="material-symbols-outlined">schedule</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-text-dark">Payment Delays</h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">Manual processing leads to unpredictable cash flows, hurting the farmer's livelihood.</p>
+              </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="group relative flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-yellow-50 text-yellow-600 group-hover:bg-yellow-100 transition-colors">
+                <span class="material-symbols-outlined">handshake</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-text-dark">Informal Agreements</h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">Verbal contracts offer no legal protection or guarantees, leaving both parties vulnerable.</p>
+              </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="group relative flex flex-col gap-4 rounded-xl bg-white p-6 shadow-sm transition-all hover:shadow-md hover:-translate-y-1">
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-50 text-blue-500 group-hover:bg-blue-100 transition-colors">
+                <span class="material-symbols-outlined">visibility_off</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-text-dark">Lack of Transparency</h3>
+                <p class="mt-2 text-sm leading-relaxed text-gray-600">Opacity in grading and quality checks breeds mistrust between farmers and factories.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Solution Section -->
+      <section class="bg-white py-20" id="solution">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+          <div class="grid gap-12 lg:grid-cols-2 items-center">
+            <div class="order-2 lg:order-1">
+              <div class="grid gap-6 sm:grid-cols-2">
+                <div class="bg-background-light p-6 rounded-xl border border-gray-100">
+                  <div class="text-primary mb-3">
+                    <span class="material-symbols-outlined text-4xl">gavel</span>
+                  </div>
+                  <h3 class="text-lg font-bold text-text-dark mb-2">Digital Contracts</h3>
+                  <p class="text-sm text-gray-600">Legally binding digital agreements that protect both parties' interests.</p>
+                </div>
+                <div class="bg-background-light p-6 rounded-xl border border-gray-100">
+                  <div class="text-primary mb-3">
+                    <span class="material-symbols-outlined text-4xl">payments</span>
+                  </div>
+                  <h3 class="text-lg font-bold text-text-dark mb-2">Smart Payments</h3>
+                  <p class="text-sm text-gray-600">Automated payouts triggered by delivery milestones ensuring timely funds.</p>
+                </div>
+                <div class="bg-background-light p-6 rounded-xl border border-gray-100">
+                  <div class="text-primary mb-3">
+                    <span class="material-symbols-outlined text-4xl">analytics</span>
+                  </div>
+                  <h3 class="text-lg font-bold text-text-dark mb-2">Quality Analytics</h3>
+                  <p class="text-sm text-gray-600">Transparent grading systems with digital records accessible to all.</p>
+                </div>
+                <div class="bg-background-light p-6 rounded-xl border border-gray-100">
+                  <div class="text-primary mb-3">
+                    <span class="material-symbols-outlined text-4xl">support_agent</span>
+                  </div>
+                  <h3 class="text-lg font-bold text-text-dark mb-2">Dispute Resolution</h3>
+                  <p class="text-sm text-gray-600">Structured framework for resolving issues quickly and fairly.</p>
+                </div>
+              </div>
+            </div>
+            <div class="order-1 lg:order-2 flex flex-col gap-6">
+              <span class="text-sm font-bold uppercase tracking-wider text-primary">Our Solution</span>
+              <h2 class="text-3xl font-black leading-tight text-text-dark sm:text-4xl lg:text-5xl">
+                Smart Technology for Modern Agriculture
+              </h2>
+              <p class="text-lg text-gray-600">
+                AgriContract replaces uncertainty with assurance. We provide a platform where contracts are created, signed, and managed digitally, ensuring that every grain harvested is accounted for and paid on time.
+              </p>
+              <ul class="space-y-4 mt-2">
+                <li class="flex items-center gap-3 text-text-dark">
+                  <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary/20 text-primary">
+                    <span class="material-symbols-outlined text-sm">check</span>
+                  </span>
+                  <span class="font-medium">Eliminate middlemen costs</span>
+                </li>
+                <li class="flex items-center gap-3 text-text-dark">
+                  <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary/20 text-primary">
+                    <span class="material-symbols-outlined text-sm">check</span>
+                  </span>
+                  <span class="font-medium">Real-time status tracking</span>
+                </li>
+                <li class="flex items-center gap-3 text-text-dark">
+                  <span class="flex h-6 w-6 items-center justify-center rounded-full bg-primary/20 text-primary">
+                    <span class="material-symbols-outlined text-sm">check</span>
+                  </span>
+                  <span class="font-medium">Secure, immutable records</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Workflow Section -->
+      <section class="bg-[#f0fdf4] py-20 relative overflow-hidden" id="workflow">
+        <div class="absolute -left-20 top-20 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-10 relative">
+          <div class="mb-16 text-center">
+            <span class="mb-2 block text-sm font-bold uppercase tracking-wider text-primary">How It Works</span>
+            <h2 class="text-3xl font-black text-text-dark sm:text-4xl">Simple 4-Step Process</h2>
+          </div>
+          <div class="relative">
+            <!-- Connecting Line (Desktop) -->
+            <div class="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -translate-y-1/2 z-0"></div>
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-4 relative z-10">
+              <!-- Step 1 -->
+              <div class="flex flex-col items-center text-center bg-white p-6 rounded-xl shadow-sm lg:bg-transparent lg:shadow-none lg:p-0">
+                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-white text-2xl font-bold shadow-lg ring-4 ring-white mb-6">1</div>
+                <h3 class="text-lg font-bold text-text-dark mb-2">Factory Posts</h3>
+                <p class="text-sm text-gray-600">Factories list their crop requirements, quality standards, and pricing models.</p>
+              </div>
+              <!-- Step 2 -->
+              <div class="flex flex-col items-center text-center bg-white p-6 rounded-xl shadow-sm lg:bg-transparent lg:shadow-none lg:p-0">
+                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-white border-2 border-primary text-primary text-2xl font-bold shadow-md ring-4 ring-white mb-6">2</div>
+                <h3 class="text-lg font-bold text-text-dark mb-2">Farmer Applies</h3>
+                <p class="text-sm text-gray-600">Farmers browse listings and apply to contracts that match their capacity.</p>
+              </div>
+              <!-- Step 3 -->
+              <div class="flex flex-col items-center text-center bg-white p-6 rounded-xl shadow-sm lg:bg-transparent lg:shadow-none lg:p-0">
+                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-white border-2 border-primary text-primary text-2xl font-bold shadow-md ring-4 ring-white mb-6">3</div>
+                <h3 class="text-lg font-bold text-text-dark mb-2">Approval &amp; Sign</h3>
+                <p class="text-sm text-gray-600">Both parties digitally sign the agreement. Terms are locked in securely.</p>
+              </div>
+              <!-- Step 4 -->
+              <div class="flex flex-col items-center text-center bg-white p-6 rounded-xl shadow-sm lg:bg-transparent lg:shadow-none lg:p-0">
+                <div class="flex h-16 w-16 items-center justify-center rounded-full bg-white border-2 border-primary text-primary text-2xl font-bold shadow-md ring-4 ring-white mb-6">4</div>
+                <h3 class="text-lg font-bold text-text-dark mb-2">Track &amp; Pay</h3>
+                <p class="text-sm text-gray-600">Harvest delivery is tracked, quality checked, and payment is auto-released.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Future Scope Section -->
+      <section class="bg-white py-20" id="future">
+        <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+          <div class="mb-12 flex flex-col items-center text-center">
+            <span class="mb-2 block text-sm font-bold uppercase tracking-wider text-primary">Roadmap</span>
+            <h2 class="text-3xl font-black text-text-dark sm:text-4xl">Building the Future Ecosystem</h2>
+            <p class="mt-4 max-w-2xl text-gray-600">We aren't just building a contract tool; we are building a complete agricultural financial ecosystem.</p>
+          </div>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <!-- Future Item 1 -->
+            <div class="flex gap-4 rounded-xl border border-gray-100 bg-background-light p-6 transition-colors hover:border-primary/30">
+              <div class="shrink-0 text-primary">
+                <span class="material-symbols-outlined text-3xl">account_balance</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-text-dark">Escrow Services</h3>
+                <p class="mt-2 text-sm text-gray-600">Hold funds securely until contract terms are met, eliminating risk of non-payment.</p>
+              </div>
+            </div>
+            <!-- Future Item 2 -->
+            <div class="flex gap-4 rounded-xl border border-gray-100 bg-background-light p-6 transition-colors hover:border-primary/30">
+              <div class="shrink-0 text-primary">
+                <span class="material-symbols-outlined text-3xl">security</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-text-dark">Crop Insurance</h3>
+                <p class="mt-2 text-sm text-gray-600">Integrated insurance products protecting against weather and pest risks directly within contracts.</p>
+              </div>
+            </div>
+            <!-- Future Item 3 -->
+            <div class="flex gap-4 rounded-xl border border-gray-100 bg-background-light p-6 transition-colors hover:border-primary/30">
+              <div class="shrink-0 text-primary">
+                <span class="material-symbols-outlined text-3xl">insights</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-text-dark">Predictive Analytics</h3>
+                <p class="mt-2 text-sm text-gray-600">AI-driven insights on crop yields and market trends to help farmers plan better.</p>
+              </div>
+            </div>
+            <!-- Future Item 4 -->
+            <div class="flex gap-4 rounded-xl border border-gray-100 bg-background-light p-6 transition-colors hover:border-primary/30">
+              <div class="shrink-0 text-primary">
+                <span class="material-symbols-outlined text-3xl">policy</span>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-text-dark">Govt Compliance</h3>
+                <p class="mt-2 text-sm text-gray-600">Automated reporting and compliance checks for government subsidies and regulations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Banner -->
+      <section class="bg-primary py-16">
+        <div class="mx-auto max-w-[1280px] px-6 text-center lg:px-10">
+          <h2 class="text-3xl font-black text-white sm:text-4xl">Ready to modernize your farming?</h2>
+          <p class="mx-auto mt-4 max-w-xl text-lg text-green-50">Join thousands of farmers and factories already securing their future with AgriContract.</p>
+          <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a href="farmer.html" class="w-full sm:w-auto h-12 flex items-center justify-center rounded-lg bg-white px-8 text-base font-bold text-primary shadow-lg transition-transform hover:bg-gray-50 active:scale-95">
+              Create Account
+            </a>
+            <a href="factory.html" class="w-full sm:w-auto h-12 flex items-center justify-center rounded-lg border-2 border-white bg-transparent px-8 text-base font-bold text-white transition-colors hover:bg-white/10">
+              Schedule Demo
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 bg-white py-12">
+      <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+        <div class="flex flex-col items-center justify-between gap-6 md:flex-row">
+          <div class="flex items-center gap-2 text-text-dark">
+            <div class="flex h-6 w-6 items-center justify-center rounded bg-primary/20 text-primary">
+              <span class="material-symbols-outlined text-sm">agriculture</span>
+            </div>
+            <span class="text-lg font-bold">AgriContract</span>
+          </div>
+          <div class="flex gap-8 text-sm text-gray-500">
+            <a class="hover:text-primary" href="#">Privacy Policy</a>
+            <a class="hover:text-primary" href="#">Terms of Service</a>
+            <a class="hover:text-primary" href="#">Contact Support</a>
+          </div>
+          <div class="text-sm text-gray-400">
+            © 2023 AgriContract Inc. All rights reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Mobile menu toggle script -->
+  <script>
+    var mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
