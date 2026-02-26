@@ -82,6 +82,10 @@
               <span class="material-symbols-outlined">factory</span>
               <span class="text-sm font-medium">Factory Portal</span>
             </a>
+            <a class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors no-underline cursor-pointer" onclick="logoutUser()">
+              <span class="material-symbols-outlined">logout</span>
+              <span class="text-sm font-medium">Logout</span>
+            </a>
           </nav>
         </div>
 
@@ -92,8 +96,8 @@
               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBRe93CE9JdNmWsdehlt8HsxZAn0hOk9Cw7TyxB5QiGhOxg-wkRHKc4uKa7ItUpATL5tX33msUB3xGuOS0LDOa93o7hl7g6BUAegTi1N5deoIvbgxRoZlYiNJfLKBXGPvWzbfvjrzERL_F0uZY75mKgc-ukfHAX2PMMCe03mVWvY3EX9PCAe8y2mxiDqjakVrMwhyDvrzGD0TYePMPPLY-Foi_FfJYmYzbd0GqpDJfpzJq5wMorL6mxP_V3lOKcxAZsoCCGPbkYAk8Z');">
             </div>
             <div class="flex flex-col overflow-hidden">
-              <span class="truncate text-sm font-medium text-gray-900">Rajesh Kumar</span>
-              <span class="truncate text-xs text-gray-500">Kumar Farms</span>
+              <span class="truncate text-sm font-medium text-gray-900" id="sidebarUserName">Rajesh Kumar</span>
+              <span class="truncate text-xs text-gray-500" id="sidebarUserRole">Farmer</span>
             </div>
           </div>
         </div>
@@ -119,7 +123,7 @@
         <!-- Welcome Section -->
         <div class="mb-8">
           <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
-          <p class="mt-2 text-gray-600">Welcome back, Rajesh. Here's what's happening with your farm contracts today.</p>
+          <p class="mt-2 text-gray-600">Welcome back, <span id="welcomeUserName">Rajesh</span>. Here's what's happening with your farm contracts today.</p>
         </div>
 
         <!-- Stats Cards -->
@@ -207,6 +211,8 @@
   <div id="toastContainer"></div>
 
   <!-- JavaScript -->
-  <script src="js/script.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/contracts.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
